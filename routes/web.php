@@ -15,7 +15,8 @@
 //    return view('welcome');
 //});
 Route::group(['middleware' => 'web','namespace' => 'admin'], function () {
-    Route::get('admin/login','LoginController@login');//登录页面
+    Route::get('admin/loginView','LoginController@loginView');//登录页面
+    Route::post('admin/login','LoginController@login');//登录
     Route::get('admin/code','LoginController@code');//验证码生成
-    Route::get('admin/getCode','LoginController@getCode');//验证码生成
+    Route::get('admin/Index','IndexController@Index');//后台主页
 });
