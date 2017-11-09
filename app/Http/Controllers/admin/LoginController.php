@@ -19,7 +19,6 @@ class LoginController extends CommonController
     //用户登录
     public function login(Request $request){
         $param = Input::all();
-//        dd($param);
         if(!empty($param)){
             //判断验证码是否正确
             $codeClass = new \Code;
@@ -43,6 +42,12 @@ class LoginController extends CommonController
         }else{
             return view('admin.login');
         }
+    }
+
+    //用户退出
+    public function loginOut(){
+        session(['admin'=>null]);
+        return redirect('admin/loginView');
     }
 
     //验证码

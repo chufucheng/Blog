@@ -14,10 +14,14 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::group(['middleware' => 'web','namespace' => 'admin'], function () {
-    Route::get('admin/loginView','LoginController@loginView');//登录页面
-    Route::post('admin/login','LoginController@login');//登录
-    Route::get('admin/code','LoginController@code');//验证码生成
-    Route::get('admin/Index','IndexController@Index');//后台主页
-    Route::get('admin/Info','IndexController@Info');//后台Info页面
+Route::group(['middleware' => 'web','namespace' => 'admin','prefix'=>'admin'], function () {
+    Route::get('loginView','LoginController@loginView');//登录页面
+    Route::post('login','LoginController@login');//登录
+    Route::get('code','LoginController@code');//验证码生成
+});
+
+Route::group(['middleware' => ['web','admin.login'],'namespace' => 'admin','prefix'=>'admin'], function () {
+    Route::get('Index','IndexController@Index');//后台主页
+    Route::get('Info','IndexController@Info');//后台Info页面
+    Route::get('loginOut','LoginController@loginOut');//用户退出登录
 });
