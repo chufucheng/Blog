@@ -1,0 +1,27 @@
+admin表管理员
+CREATE TABLE `admin` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `name` varchar(50) NOT NULL DEFAULT '' COMMENT '//用户名称',
+  `password` varchar(255) NOT NULL DEFAULT '' COMMENT '//用户密码',
+  `createdAt` int(10) unsigned DEFAULT '0' COMMENT '//创建时间',
+  `updatedAt` int(10) unsigned DEFAULT '0' COMMENT '//更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员';
+//添加一个最高管理员 admin 密码 qqqqqq
+INSERT INTO `admin` VALUES ('1', 'admin', 'eyJpdiI6Im5vQkhzSEZVNUhGMUFiODljMzhTTEE9PSIsInZhbHVlIjoiSzZod1N5cjkxa1psNXNqTWlCYTE4dz09IiwibWFjIjoiODVkMGQyMGZkYjQ1MWQwM2M1ZmQ2NDdhOTI5NjE5ZjI5YjYxNjdjNmJhM2RiNWEzMDg1OTYwMjYzYWM1ZGUyMiJ9', '1510152363', '1510324668');
+-----------------------------------------------------------------------------------------------------------
+category表 文章分类
+CREATE TABLE `category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `name` varchar(255) DEFAULT '' COMMENT '//分类名称',
+  `title` varchar(255) DEFAULT '' COMMENT '//标题',
+  `keyWords` varchar(255) DEFAULT '' COMMENT '//关键字',
+  `description` varchar(255) DEFAULT '' COMMENT '//网页描述',
+  `view` int(10) unsigned DEFAULT '0' COMMENT '浏览次数',
+  `order` tinyint(4) unsigned DEFAULT '0' COMMENT '排序',
+  `pid` int(10) unsigned DEFAULT '0' COMMENT '父级ID',
+  `createdAt` int(10) unsigned DEFAULT '0' COMMENT '创建时间',
+  `updatedAt` int(10) unsigned DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章分类表';
+-----------------------------------------------------------------------------------------------------------
