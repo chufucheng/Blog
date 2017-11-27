@@ -26,4 +26,5 @@ Route::group(['middleware' => ['web','admin.login'],'namespace' => 'admin','pref
     Route::get('loginOut','LoginController@loginOut');//用户退出登录
     Route::get('resetPassView','IndexController@resetPassView');//重置密码页面
     Route::post('resetPassword','IndexController@resetPassword');//重置密码
+    Route::get('categoryList','CategoryController@categoryList');//分类列表
 });
