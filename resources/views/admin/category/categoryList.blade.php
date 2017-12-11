@@ -62,7 +62,7 @@
                     <tr>
                         <td class="tc"><input type="checkbox" name="id[]" value="59"></td>
                         <td class="tc">
-                            <input type="text" name="ord[]" value="0">
+                            <input type="text" onchange="changeOrder(this,{{$value['id']}})" value="{{$value['order']}}">
                         </td>
                         <td class="tc">{{$value['id']}}</td>
                         <td>
@@ -83,7 +83,7 @@
                                 <tr>
                                     <td class="tc"><input type="checkbox" name="id[]" value="59"></td>
                                     <td class="tc">
-                                        <input type="text" name="ord[]" value="0">
+                                        <input type="text" onchange="changeOrder(this,{{$v['id']}})" value="{{$v['order']}}">
                                     </td>
                                     <td class="tc">{{$v['id']}}</td>
                                     <td>
@@ -132,4 +132,16 @@
         </div>
     </form>
     <!--搜索结果页面 列表 结束-->
+<script>
+    function changeOrder(obj,cateId){
+        var order = $(obj).val();
+        $.post("{{'cate/changeCategory'}}",{'_token':"{{csrf_token()}}",'cateId':cateId,'order':order},function(data){
+            if(data.status != 0){//失败
+                layer.alert(data.msg, {icon: 5});
+            }else{//成功
+                layer.alert(data.msg, {icon: 6});
+            }
+        })
+    }
+</script>
 @endsection
