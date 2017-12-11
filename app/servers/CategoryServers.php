@@ -9,7 +9,8 @@ namespace App\servers;
 class CategoryServers
 {
     //格式化分类数据
-    public function formateCategoryList($data = []){
+    public function formateCategoryList($data = [])
+    {
         if(empty($data)){
             return false;
         }
