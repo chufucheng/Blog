@@ -71,7 +71,7 @@ class CategoryController extends CommonController
             ];
             $addStatus = Category::insertGetId($data);
             if(!$addStatus){//添加失败
-                return redirect('admin/cate/addCategoryView')->with('msg','添加分类失败!');
+                return redirect('admin/cate/addCategoryView')->with('msg','添加分类失败,请稍后重试!');
             }else{//修改成功
                 return redirect('admin/categoryList');
             }
